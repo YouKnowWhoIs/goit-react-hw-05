@@ -1,6 +1,12 @@
+@import url("../header/header.module.css");
+@import url("../notFound/notFound.module.css");
+@import url("../pages/home/home.module.css");
+
 #root {
   max-width: 1280px;
+}
+
+body {
+  background-color: antiquewhite;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
