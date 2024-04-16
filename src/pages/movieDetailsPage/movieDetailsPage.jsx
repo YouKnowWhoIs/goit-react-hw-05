@@ -8,12 +8,9 @@ export const MovieDetailsPage = () => {
 
   useEffect(() => {
     const loadDetails = async () => {
-      try {
-        const result = await FetchDetailsMovies(movieId);
-        setMovieDetails(result);
-      } catch (err) {
-        console.log(err);
-      }
+      const result = await FetchDetailsMovies(movieId);
+      setMovieDetails(result);
+      console.log(result);
     };
     loadDetails();
   }, [movieId]);
@@ -41,8 +38,8 @@ export const MovieDetailsPage = () => {
       {movieDetails?.genres.map((genre) => genre.name).join(", ")}
 
       <h4>Additional information:</h4>
-      <NavLink to={`${movieId}/cast`}>Cast</NavLink>
-      <NavLink to={`${movieId}/reviews`}>Reviews</NavLink>
+      <NavLink to={`cast`}>Cast</NavLink>
+      <NavLink to={`reviews`}>Reviews</NavLink>
 
       <Outlet />
     </div>

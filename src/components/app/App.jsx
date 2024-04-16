@@ -72,15 +72,7 @@ function App() {
           path="/movie/:movieName"
           element={<MovieList movies={visibleMovies} />}
         />
-        <Route
-          path="/movie/:movieId"
-          element={
-            <MovieDetailsPage
-              movie={MovieName}
-              setSearchParams={setSearchParams}
-            />
-          }
-        >
+        <Route path="/movie/:movieId" element={<MovieDetailsPage />}>
           <Route path="cast" element={<MovieCast />} />
           <Route path="reviews" element={<MovieReviews />} />
         </Route>
