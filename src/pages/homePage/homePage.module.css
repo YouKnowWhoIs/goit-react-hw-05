@@ -1,3 +1,14 @@
 .home-conteiner {
-  margin: 100px 0 15px 25px;
+  margin: 60px 0 15px 25px;
+}
+
+.home-list {
+  list-style: none;
+  padding-top: 5px;
+}
+
+.home-link {
+  text-decoration: underline burlywood;
+  font-weight: 600;
+  color: #111;
 }

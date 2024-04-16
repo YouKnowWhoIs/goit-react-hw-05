@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 export const MovieList = ({ movies }) => {
+  console.log("work: ", movies);
   return (
     <div>
       <ul>
