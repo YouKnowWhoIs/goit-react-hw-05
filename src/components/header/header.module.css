@@ -7,20 +7,3 @@
 .header-nav {
   margin: 0 10px 0 0;
 }
-
-.active,
-.notActive {
-  margin: 0 20px 0 0;
-  font-weight: 500;
-  font-size: larger;
-  text-decoration: none;
-}
-
-.active {
-  color: burlywood;
-  font-weight: 700;
-}
-
-.notActive {
-  color: #111;
-}

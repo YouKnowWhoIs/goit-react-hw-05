@@ -1,5 +1,5 @@
 import { Outlet, useParams, NavLink, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FetchDetailsMovies } from "../../components/api/apiDetailsMovies.js";
 import css from "./movieDetailsPage.module.css";
 
@@ -11,13 +11,17 @@ export const MovieDetailsPage = () => {
     const loadDetails = async () => {
       const result = await FetchDetailsMovies(movieId);
       setMovieDetails(result);
-      // console.log(result);
     };
     loadDetails();
   }, [movieId]);
 
   const location = useLocation();
   const backLink = location.state ?? "/";
+  const inputRef = useRef(location.state);
+
+  const handleClick = () => {
+    inputRef.current && inputRef.current.focus();
+  };
 
   const activeLink = ({ isActive }) => {
     return isActive ? css.active : css.notActive;
@@ -25,9 +29,12 @@ export const MovieDetailsPage = () => {
 
   return (
     <div className="conteiner-movie-details">
-      <NavLink to={backLink} className="back-btn">
-        Turn to home
-      </NavLink>
+      <button onClick={handleClick} type="button" className="back-btn">
+        <NavLink to={backLink} className="back-btn-nav">
+          Turn to home
+        </NavLink>
+      </button>
+
       <img
         src={`https://image.tmdb.org/t/p/w500${movieDetails?.backdrop_path}`}
         alt={`${movieDetails?.title}`}

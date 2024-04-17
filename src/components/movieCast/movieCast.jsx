@@ -17,16 +17,20 @@ export const MovieCast = () => {
 
   return (
     <>
-      {castInf.map((actor) => (
-        <div key={actor.id} className="conteiner-cast">
-          <img
-            src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
-            alt={actor.name}
-          />
-          <p>Actor: {actor.name}</p>
-          <p>Character: {actor.character}</p>
-        </div>
-      ))}
+      {castInf.length > 0 ? (
+        castInf.map((actor) => (
+          <div key={actor.id} className="conteiner-cast">
+            <img
+              src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+              alt={actor.name}
+            />
+            <p>Actor: {actor.name}</p>
+            <p>Character: {actor.character}</p>
+          </div>
+        ))
+      ) : (
+        <p>aaaa</p>
+      )}
     </>
   );
 };

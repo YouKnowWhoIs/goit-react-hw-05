@@ -11,8 +11,6 @@ export const MoviesPage = () => {
 
   const searchValue = searchParams.get("query") ?? "";
 
-  // console.log("searchValue:", searchValue);
-
   useEffect(() => {
     const loadMovies = async () => {
       try {
@@ -34,7 +32,6 @@ export const MoviesPage = () => {
   const handleSearch = () => {
     if (searchInput.trim() !== "") {
       setSearchParams({ query: searchInput });
-      window.location.reload();
     } else {
       alert("The search field is empty!");
     }
@@ -47,6 +44,7 @@ export const MoviesPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSearch();
+    setSearchInput("");
   };
 
   return (
@@ -65,7 +63,9 @@ export const MoviesPage = () => {
       </form>
 
       {showNoResults && <p className="no-movies-found">No movies found.</p>}
-      {movies && movies.results.length > 0 && <MovieList movies={movies} />}
+      {movies && movies.results.length > 0 && (
+        <MovieList movies={movies.results} />
+      )}
     </div>
   );
 };

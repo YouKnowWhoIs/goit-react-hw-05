@@ -5,20 +5,19 @@
 
 .back-btn {
   margin: 25px 0 15px 0;
-  padding: 10px 15px;
-  background-color: #fff;
-  border: 2px solid burlywood;
-  border-radius: 30px;
-  text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  display: flex;
-  width: 100px;
-}
-.back-btn:hover {
   background-color: antiquewhite;
+  border: none;
+  display: flex;
+}
+
+.back-btn-nav {
+  text-decoration: underline burlywood;
+  color: #111;
+  font-weight: 600;
+}
+.back-btn-nav:hover {
   color: burlywood;
-  border: 2px solid #fff;
+  text-decoration: underline #111;
 }
 
 .movie-deteils-img {
