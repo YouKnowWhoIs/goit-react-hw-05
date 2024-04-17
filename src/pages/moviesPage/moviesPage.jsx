@@ -3,7 +3,7 @@ import { SearchMovies } from "../../components/api/apiSearchMovies.js";
 import { useEffect, useState } from "react";
 import { MovieList } from "../../components/movieList/movieList.jsx";
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchInput, setSearchInput] = useState("");
   const [movies, setMovies] = useState(null);
@@ -69,3 +69,5 @@ export const MoviesPage = () => {
     </div>
   );
 };
+
+export default MoviesPage;

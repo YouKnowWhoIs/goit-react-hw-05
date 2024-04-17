@@ -1,6 +1,6 @@
 import { Navigation } from "../navigation/navigation.jsx";
 
-export const Header = () => {
+const Header = () => {
   return (
     <div className="header-conteiners">
       <nav className="header-nav">
@@ -9,3 +9,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;

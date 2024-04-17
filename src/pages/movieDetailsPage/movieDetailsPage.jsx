@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { FetchDetailsMovies } from "../../components/api/apiDetailsMovies.js";
 import css from "./movieDetailsPage.module.css";
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
 
@@ -59,3 +59,5 @@ export const MovieDetailsPage = () => {
     </div>
   );
 };
+
+export default MovieDetailsPage;
