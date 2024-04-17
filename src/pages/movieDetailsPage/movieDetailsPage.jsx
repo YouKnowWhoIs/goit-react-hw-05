@@ -26,10 +26,12 @@ export const MovieDetailsPage = () => {
   return (
     <div className="conteiner-movie-details">
       <NavLink to={backLink} className="back-btn">
-        Turn back
+        Turn to home
       </NavLink>
       <img
         src={`https://image.tmdb.org/t/p/w500${movieDetails?.backdrop_path}`}
+        alt={`${movieDetails?.title}`}
+        className="movie-deteils-img"
       />
       <h3>{movieDetails?.title}</h3>
       <p>Release date: {movieDetails?.release_date}</p>

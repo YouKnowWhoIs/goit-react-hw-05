@@ -1,0 +1,15 @@
+.movies-list {
+  list-style: none;
+  padding-top: 5px;
+}
+
+.nav-link-movies {
+  color: #111;
+  font-weight: 600;
+  text-decoration: underline burlywood;
+}
+
+.nav-link-movies:hover {
+  color: burlywood;
+  text-decoration: underline #111;
+}

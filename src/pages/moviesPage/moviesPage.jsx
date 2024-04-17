@@ -1,4 +1,4 @@
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { SearchMovies } from "../../components/api/apiSearchMovies.js";
 import { useEffect, useState } from "react";
 import { MovieList } from "../../components/movieList/movieList.jsx";
@@ -6,10 +6,12 @@ import { MovieList } from "../../components/movieList/movieList.jsx";
 export const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchInput, setSearchInput] = useState("");
-  const [movies, setMovies] = useState([]);
-  const navigate = useNavigate();
+  const [movies, setMovies] = useState(null);
+  const [showNoResults, setShowNoResults] = useState(false);
 
-  const searchValue = searchParams.get("query");
+  const searchValue = searchParams.get("query") ?? "";
+
+  // console.log("searchValue:", searchValue);
 
   useEffect(() => {
     const loadMovies = async () => {
@@ -17,9 +19,9 @@ export const MoviesPage = () => {
         if (searchValue) {
           const resData = await SearchMovies(searchValue);
           setMovies(resData);
-          console.log(resData);
+          setShowNoResults(resData.results.length === 0);
         } else {
-          setMovies([]);
+          return;
         }
       } catch (err) {
         console.log(err);
@@ -30,8 +32,12 @@ export const MoviesPage = () => {
   }, [searchValue]);
 
   const handleSearch = () => {
-    setSearchParams({ query: searchInput });
-    navigate(`/movies?query=${encodeURIComponent(searchInput)}`);
+    if (searchInput.trim() !== "") {
+      setSearchParams({ query: searchInput });
+      window.location.reload();
+    } else {
+      alert("The search field is empty!");
+    }
   };
 
   const handleChange = (event) => {
@@ -41,12 +47,10 @@ export const MoviesPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSearch();
-    const form = event.currentTarget;
-    form.reset();
   };
 
   return (
-    <>
+    <div>
       <form onSubmit={handleSubmit} className="conteiner-movies-page">
         <input
           type="text"
@@ -60,11 +64,8 @@ export const MoviesPage = () => {
         </button>
       </form>
 
-      {movies.length > 0 ? (
-        <MovieList movies={movies} />
-      ) : (
-        <>not faund any movies</>
-      )}
-    </>
+      {showNoResults && <p className="no-movies-found">No movies found.</p>}
+      {movies && movies.results.length > 0 && <MovieList movies={movies} />}
+    </div>
   );
 };

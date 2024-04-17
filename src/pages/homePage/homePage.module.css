@@ -12,3 +12,8 @@
   font-weight: 600;
   color: #111;
 }
+
+.home-link:hover {
+  color: burlywood;
+  text-decoration: underline #111;
+}

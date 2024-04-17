@@ -4,10 +4,7 @@
 @import url("../../pages/movieDetailsPage/movieDetailsPage.module.css");
 @import url("../../components/movieCast/movieCast.module.css");
 @import url("../../pages/moviesPage/moviesPages.module.css");
-
-#root {
-  max-width: 1280px;
-}
+@import url("../../components/movieList/movieList.module.css");
 
 body {
   background-color: antiquewhite;
